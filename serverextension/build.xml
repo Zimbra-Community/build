@@ -51,7 +51,7 @@ Needs jsch-libraries for the deployment tasks.
 
     <target name="jar" depends="compile" description="Creates the jar file">
         <jar manifest="${project.manifest}"
-             destfile="${dist.jarfile}" basedir="${build.dir}" />
+             destfile="${dist.dir}/${dist.jarfile}" basedir="${build.dir}" />
     </target>
 
     <target name="deploy" depends="jar"
@@ -61,7 +61,7 @@ Needs jsch-libraries for the deployment tasks.
                  command="mkdir ${deploy.path}"
                  failonerror="false" keyfile="${deploy.keyfile}"/>
 
-        <scp file="${dist.jarfile}"
+        <scp file="${dist.dir}/${dist.jarfile}"
              todir="${deploy.username}@${deploy.host}:${deploy.path}"
              keyfile="${deploy.keyfile}"/>
 
