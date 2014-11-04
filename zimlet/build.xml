@@ -64,7 +64,7 @@ Needs jsch-libraries for the deployment task.
 
         <scp
             todir="${dev.deploy.user}@${dev.deploy.host}:${dev.deploy.directory}/${dist.name}"
-             keyfile="${deploy.keyfile}">
+             keyfile="${dev.deploy.keyfile}">
 
             <fileset dir="${basedir}">
                 <patternset refid="zimlet.sources" />
